@@ -14,11 +14,6 @@ import { usePathname } from "next/navigation"
 export function AsideMenu() {
     const pathname = usePathname();
 
-    const navigation = [
-        { id: 1, icon: '<Home className="size- 5" />', name: "Home", href: "/" },
-        { id: 2, icon: '<ScanLine className="size- 5" />', name: "Scan Ticket", href: "/scan-ticket" }
-    ]
-
     return (
         <>
             <aside className="inset-y fixed  left-0 z-20 flex h-full flex-col border-r">
@@ -31,27 +26,50 @@ export function AsideMenu() {
                 </div>
                 <nav className="grid gap-1 p-2">
                     <TooltipProvider>
-                        {navigation.map(({ href, name, icon, id }) => (
-                            <Tooltip key={id}>
-                                <TooltipTrigger asChild>
-                                    <Button
-                                        variant="ghost"
-                                        size="icon"
-                                        className={"rounded-lg"
-                                        }
-                                        aria-label={name}
-                                        asChild
-                                    >
-                                        <Link href={href}>
-                                            {icon}
-                                        </Link>
-                                    </Button>
-                                </TooltipTrigger>
-                                <TooltipContent side="right" sideOffset={5}>
-                                    {name}
-                                </TooltipContent>
-                            </Tooltip>
-                        ))}
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <Button
+                                    variant="ghost"
+                                    size="icon"
+                                    className={
+                                        pathname === "/"
+                                            ? "rounded-lg bg-muted"
+                                            : "rounded-lg"
+                                    }
+                                    aria-label="Home"
+                                    asChild
+                                >
+                                    <Link href="/">
+                                        <Home className="size-5" />
+                                    </Link>
+                                </Button>
+                            </TooltipTrigger>
+                            <TooltipContent side="right" sideOffset={5}>
+                                Home
+                            </TooltipContent>
+                        </Tooltip>
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <Button
+                                    variant="ghost"
+                                    size="icon"
+                                    className={
+                                        pathname === "/scan-ticket"
+                                            ? "rounded-lg bg-muted"
+                                            : "rounded-lg"
+                                    }
+                                    aria-label="Scan Ticket"
+                                    asChild
+                                >
+                                    <Link href="/scan-ticket">
+                                        <ScanLine className="size-5" />
+                                    </Link>
+                                </Button>
+                            </TooltipTrigger>
+                            <TooltipContent side="right" sideOffset={5}>
+                                Scan Ticket
+                            </TooltipContent>
+                        </Tooltip>
                     </TooltipProvider>
                 </nav>
                 <nav className="mt-auto grid gap-1 p-2">
