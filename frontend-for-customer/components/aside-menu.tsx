@@ -1,7 +1,5 @@
 "use client"
 
-import { ReactDOM } from "react"
-
 import { Button } from "@/components/ui/button"
 import { Ticket, Home, ScanLine, LifeBuoy, SquareUser } from "lucide-react"
 import {
@@ -17,8 +15,8 @@ export function AsideMenu() {
     const pathname = usePathname();
 
     const navigation = [
-        { id: 1, icon: "Home", name: "Home", href: "/" },
-        { id: 2, icon: "ScanLine", name: "Scan Ticket", href: "/scan-ticket" }
+        { id: 1, icon: '<Home className="size- 5" />', name: "Home", href: "/" },
+        { id: 2, icon: '<ScanLine className="size- 5" />', name: "Scan Ticket", href: "/scan-ticket" }
     ]
 
     return (
@@ -45,12 +43,12 @@ export function AsideMenu() {
                                         asChild
                                     >
                                         <Link href={href}>
-                                            <Home className="size-5" />
+                                            {icon}
                                         </Link>
                                     </Button>
                                 </TooltipTrigger>
                                 <TooltipContent side="right" sideOffset={5}>
-                                    Home
+                                    {name}
                                 </TooltipContent>
                             </Tooltip>
                         ))}
