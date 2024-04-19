@@ -1,98 +1,59 @@
+"use client"
+
+import { ReactDOM } from "react"
+
 import { Button } from "@/components/ui/button"
-import { Triangle, SquareTerminal, Bot, Code2, Book, Settings2, LifeBuoy, SquareUser } from "lucide-react"
+import { Ticket, Home, ScanLine, LifeBuoy, SquareUser } from "lucide-react"
 import {
     Tooltip,
     TooltipContent,
     TooltipTrigger,
     TooltipProvider
 } from "@/components/ui/tooltip"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 export function AsideMenu() {
+    const pathname = usePathname();
+
+    const navigation = [
+        { id: 1, icon: "Home", name: "Home", href: "/" },
+        { id: 2, icon: "ScanLine", name: "Scan Ticket", href: "/scan-ticket" }
+    ]
+
     return (
         <>
             <aside className="inset-y fixed  left-0 z-20 flex h-full flex-col border-r">
                 <div className="border-b p-2">
-                    <Button variant="outline" size="icon" aria-label="Home">
-                        <Triangle className="size-5 fill-foreground" />
+                    <Button variant="outline" size="icon" aria-label="Logo" asChild>
+                        <Link href={"/"}>
+                            <Ticket className="size-5" />
+                        </Link>
                     </Button>
                 </div>
                 <nav className="grid gap-1 p-2">
                     <TooltipProvider>
-                        <Tooltip>
-                            <TooltipTrigger asChild>
-                                <Button
-                                    variant="ghost"
-                                    size="icon"
-                                    className="rounded-lg bg-muted"
-                                    aria-label="Playground"
-                                >
-                                    <SquareTerminal className="size-5" />
-                                </Button>
-                            </TooltipTrigger>
-                            <TooltipContent side="right" sideOffset={5}>
-                                Playground
-                            </TooltipContent>
-                        </Tooltip>
-                        <Tooltip>
-                            <TooltipTrigger asChild>
-                                <Button
-                                    variant="ghost"
-                                    size="icon"
-                                    className="rounded-lg"
-                                    aria-label="Models"
-                                >
-                                    <Bot className="size-5" />
-                                </Button>
-                            </TooltipTrigger>
-                            <TooltipContent side="right" sideOffset={5}>
-                                Models
-                            </TooltipContent>
-                        </Tooltip>
-                        <Tooltip>
-                            <TooltipTrigger asChild>
-                                <Button
-                                    variant="ghost"
-                                    size="icon"
-                                    className="rounded-lg"
-                                    aria-label="API"
-                                >
-                                    <Code2 className="size-5" />
-                                </Button>
-                            </TooltipTrigger>
-                            <TooltipContent side="right" sideOffset={5}>
-                                API
-                            </TooltipContent>
-                        </Tooltip>
-                        <Tooltip>
-                            <TooltipTrigger asChild>
-                                <Button
-                                    variant="ghost"
-                                    size="icon"
-                                    className="rounded-lg"
-                                    aria-label="Documentation"
-                                >
-                                    <Book className="size-5" />
-                                </Button>
-                            </TooltipTrigger>
-                            <TooltipContent side="right" sideOffset={5}>
-                                Documentation
-                            </TooltipContent>
-                        </Tooltip>
-                        <Tooltip>
-                            <TooltipTrigger asChild>
-                                <Button
-                                    variant="ghost"
-                                    size="icon"
-                                    className="rounded-lg"
-                                    aria-label="Settings"
-                                >
-                                    <Settings2 className="size-5" />
-                                </Button>
-                            </TooltipTrigger>
-                            <TooltipContent side="right" sideOffset={5}>
-                                Settings
-                            </TooltipContent>
-                        </Tooltip>
+                        {navigation.map(({ href, name, icon, id }) => (
+                            <Tooltip key={id}>
+                                <TooltipTrigger asChild>
+                                    <Button
+                                        variant="ghost"
+                                        size="icon"
+                                        className={"rounded-lg"
+                                        }
+                                        aria-label={name}
+                                        asChild
+                                    >
+                                        <Link href={href}>
+                                            <Home className="size-5" />
+                                        </Link>
+                                    </Button>
+                                </TooltipTrigger>
+                                <TooltipContent side="right" sideOffset={5}>
+                                    Home
+                                </TooltipContent>
+                            </Tooltip>
+                        ))}
                     </TooltipProvider>
                 </nav>
                 <nav className="mt-auto grid gap-1 p-2">
