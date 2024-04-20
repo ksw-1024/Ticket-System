@@ -19,10 +19,13 @@ import { Label } from "@/components/ui/label"
 
 export default function Login() {
     return (
-        <>
-            <main className="flex min-h-screen flex-col items-center justify-between">
-                <AsideMenu />
-                <Card className="w-full max-w-xs mt-auto mb-auto">
+        <div className="grid h-screen w-full pl-[56px]">
+            <AsideMenu />
+            <div className={"flex flex-col mr-10 ml-10"}>
+                <header className={"sticky top-0 z-10 flex h-[57px] items-center gap-1 border-b bg-background px-4"}>
+                    <h1 className={"text-xl font-bold"}>I am T-SYS !</h1>
+                </header>
+                <Card className="w-full max-w-xs mt-[60px] ml-auto mr-auto">
                     <CardHeader>
                         <CardTitle className="text-2xl">Login</CardTitle>
                         <CardDescription className="mt-1">
@@ -54,7 +57,7 @@ export default function Login() {
                         </CardFooter>
                     </form>
                 </Card>
-            </main>
-        </>
+            </div>
+        </div>
     );
 }

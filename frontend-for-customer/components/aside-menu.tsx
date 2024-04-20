@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Ticket, Home, QrCode, LifeBuoy } from "lucide-react"
+import { Ticket, Home, QrCode, LifeBuoy, UserIcon } from "lucide-react"
 import {
     Tooltip,
     TooltipContent,
@@ -15,7 +15,7 @@ import React from "react"
 import { useSession } from "next-auth/react"
 
 import Image from "next/image"
-import UserIcon from "@/public/user-icon.svg"
+import UserIconSVG from "@/public/user-icon.svg"
 import { auth } from "@/auth"
 
 export function AsideMenu() {
@@ -133,8 +133,17 @@ export function AsideMenu() {
                                     <Image src={
                                         session?.user?.image != null
                                             ? session?.user?.image
-                                            : UserIcon
-                                    } alt="" width={10} height={10} className="size-5" />
+                                            : ""
+                                    } alt="" width={10} height={10} className={
+                                        session?.user?.image != null
+                                            ? "size-5"
+                                            : "hidden"
+                                    } />
+                                    <UserIcon className={
+                                        session?.user?.image != null
+                                            ? "hidden"
+                                            : "size-5"
+                                    } />
                                 </Link>
                             </Button>
                         </TooltipTrigger>
