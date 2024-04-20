@@ -15,16 +15,10 @@ import React from "react"
 import { useSession } from "next-auth/react"
 
 import Image from "next/image"
-import UserIconSVG from "@/public/user-icon.svg"
-import { auth } from "@/auth"
 
 export function AsideMenu() {
     const pathname = usePathname();
     const { data: session, status } = useSession()
-
-    if (session != null) {
-        console.log(session?.user?.image)
-    }
 
     var LoginText = "Login"
     if (status === "authenticated") LoginText = "Account"

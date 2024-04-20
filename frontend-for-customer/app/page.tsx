@@ -77,7 +77,7 @@ export default function Home() {
           <Card className={"col-span-3 lg:col-start-2 mt-5 h-[300px] mr-5 ml-5"}>
             <CardHeader>
               <CardTitle className={"text-center font-medium text-sm"}>
-                マニュアル通りにコマンドを入力
+                マニュアル通りにコマンドを入力すれば
               </CardTitle>
             </CardHeader>
             <CardContent>
