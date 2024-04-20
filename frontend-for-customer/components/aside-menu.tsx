@@ -16,10 +16,16 @@ import { useSession } from "next-auth/react"
 
 import Image from "next/image"
 import UserIcon from "@/public/user-icon.svg"
+import { auth } from "@/auth"
 
 export function AsideMenu() {
     const pathname = usePathname();
     const { data: session, status } = useSession()
+
+    if (session != null) {
+        console.log(session?.user?.image)
+    }
+
     var LoginText = "Login"
     if (status === "authenticated") LoginText = "Account"
 
@@ -124,7 +130,11 @@ export function AsideMenu() {
                                         ? "/account"
                                         : "/login"
                                 }>
-                                    <Image src={UserIcon} alt="" className="size-5" />
+                                    <Image src={
+                                        session?.user?.image != null
+                                            ? session?.user?.image
+                                            : UserIcon
+                                    } alt="" width={10} height={10} className="size-5" />
                                 </Link>
                             </Button>
                         </TooltipTrigger>
