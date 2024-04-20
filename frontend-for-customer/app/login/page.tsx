@@ -1,5 +1,10 @@
 import { AsideMenu } from "@/components/aside-menu";
 
+import Image from "next/image"
+import GoogleIcon from "@/public/google-icon.svg"
+
+import { signIn } from "@/auth"
+
 import { Button } from "@/components/ui/button"
 import {
     Card,
@@ -35,9 +40,20 @@ export default function Login() {
                             <Input id="password" type="password" required />
                         </div>
                     </CardContent>
-                    <CardFooter>
+                    <CardContent>
                         <Button className="w-full">Sign in</Button>
-                    </CardFooter>
+                    </CardContent>
+                    <form
+                        action={async () => {
+                            "use server"
+                            await signIn("google")
+                        }}
+                    >
+                        <CardFooter>
+                            <Button variant={"outline"} className="w-full">
+                                <Image src={GoogleIcon} alt="Google Icon" className="mr-3 h-5 w-5"></Image> Signin with Google</Button>
+                        </CardFooter>
+                    </form>
                 </Card>
             </main>
         </>
