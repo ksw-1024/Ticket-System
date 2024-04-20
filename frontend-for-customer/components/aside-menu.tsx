@@ -98,7 +98,7 @@ export function AsideMenu() {
                                         ? "rounded-lg bg-muted"
                                         : "rounded-lg"
                                 }
-                                aria-label="About"
+                                aria-label="About us"
                             >
                                 <Link href={"/about"}>
                                     <LifeBuoy className="size-5" />
@@ -106,7 +106,7 @@ export function AsideMenu() {
                             </Button>
                         </TooltipTrigger>
                         <TooltipContent side="right" sideOffset={5}>
-                            About
+                            About us
                         </TooltipContent>
                     </Tooltip>
                     <Tooltip>
