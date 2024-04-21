@@ -69,7 +69,11 @@ export function AsideMenu() {
                                 aria-label="Scan Ticket"
                                 asChild
                             >
-                                <Link href="/scan-ticket">
+                                <Link href={
+                                    status === "authenticated"
+                                        ? "/scan-ticket"
+                                        : "/login"
+                                }>
                                     <QrCode className="size-5" />
                                 </Link>
                             </Button>
