@@ -36,8 +36,8 @@ export default function Home() {
         </div>
         <p className={"text-sm font-semibold px-4 mt-2"}>このシステムは、オープンソースで開発されたオンラインチケットシステムです。</p>
         <p className={"text-sm font-semibold px-4"}>主に、学校の文化祭、学園祭、またはフリーマーケットなど、入場管理を低コストで行いたい場合に適しています。</p>
-        <div className="grid grid-cols-3 lg:grid-cols-11 items-end">
-          <Card className={"col-span-3 lg:col-start-2 mt-5 h-[300px] mr-5 ml-5"}>
+        <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-11 items-end">
+          <Card className={"col-span-3 md:col-start-2 lg:col-start-2 mt-5 h-[300px] mr-5 ml-5"}>
             <CardHeader>
               <CardTitle className={"text-center font-medium text-sm"}>
                 予約して
@@ -47,7 +47,7 @@ export default function Home() {
               <Image src={Reservations} alt="Reservation illust" className="mr-auto ml-auto" height={200}></Image>
             </CardContent>
           </Card>
-          <Card className={"col-span-3 lg:col-start-5 mt-5 h-[300px] mr-5 ml-5"}>
+          <Card className={"col-span-3 md:col-start-2 lg:col-start-5 mt-5 h-[300px] mr-5 ml-5"}>
             <CardHeader>
               <CardTitle className={"text-center font-medium text-sm"}>
                 会場に向かって
@@ -57,7 +57,7 @@ export default function Home() {
               <Image src={Walking} alt="Going illust" className={"mr-auto ml-auto"} height={200} />
             </CardContent>
           </Card>
-          <Card className={"col-span-3 lg:col-start-8 mt-5 h-[300px] mr-5 ml-5"}>
+          <Card className={"col-span-3 md:col-start-2 lg:col-start-8 mt-5 h-[300px] mr-5 ml-5"}>
             <CardHeader>
               <CardTitle className={"text-center font-medium text-sm"}>
                 QRコードを読み取るだけ
@@ -73,8 +73,8 @@ export default function Home() {
         </div>
         <p className={"text-sm font-semibold px-4 mt-2"}>いくつかのコマンドをコピー&ペーストすれば、簡単にこのシステムを使うことができます。</p>
         <p className={"text-sm font-semibold px-4"}>OSSなので、自由に調整を加えることも可能です。</p>
-        <div className="grid grid-cols-3 lg:grid-cols-8 items-end">
-          <Card className={"col-span-3 lg:col-start-2 mt-5 h-[300px] mr-5 ml-5"}>
+        <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-8 items-end">
+          <Card className={"col-span-3 md:col-start-2 lg:col-start-2 mt-5 h-[300px] mr-5 ml-5"}>
             <CardHeader>
               <CardTitle className={"text-center font-medium text-sm"}>
                 マニュアル通りにコマンドを入力すれば
@@ -84,7 +84,7 @@ export default function Home() {
               <Image src={Command} alt="Command illust" className={"mr-auto ml-auto"} height={200} />
             </CardContent>
           </Card>
-          <Card className={"col-span-3 lg:col-start-5 mt-5 h-[300px] mr-5 ml-5"}>
+          <Card className={"col-span-3 md:col-start-2 lg:col-start-5 mt-5 h-[300px] mr-5 ml-5"}>
             <CardHeader>
               <CardTitle className={"text-center font-medium text-sm"}>
                 すぐにサービス利用開始
